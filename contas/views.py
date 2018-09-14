@@ -6,6 +6,7 @@ def home(request):
     data = {}
     data['transacoes'] = ['t1','t2','t2']
     data['dinheiro'] = ['a1','a2','a3']
+    data['nomes']=['Hugo','Monielle','Pedro']
 
     data['now'] = datetime.datetime.now()
 
