@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
+from .forms import TransacaoForm 
 
 def home(request):
     data = {}
@@ -15,3 +16,13 @@ def home(request):
 def login(request):
 
     return render(request, 'contas/login.html')
+
+def nova_transacao(request):
+    #instanciamos do "from .foms import TransacaoForm"
+    data = {}
+    #sempre que chamar o model do form tem que colocar ()
+    form = TransacaoForm()
+    data['form'] = form
+    
+    # passa o form para a view chamaada form.html pelo data
+    return render(request, 'contas/form.html', data)
