@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 #Depois que criar os models do banco de dados sempre usar o "python manage.py migrate"

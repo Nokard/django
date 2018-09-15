@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render 
 from django.http import HttpResponse
 import datetime
 from .forms import TransacaoForm 
@@ -17,12 +17,16 @@ def login(request):
 
     return render(request, 'contas/login.html')
 
-def nova_transacao(request):
-    #instanciamos do "from .foms import TransacaoForm"
-    data = {}
-    #sempre que chamar o model do form tem que colocar ()
-    form = TransacaoForm()
-    data['form'] = form
-    
-    # passa o form para a view chamaada form.html pelo data
-    return render(request, 'contas/form.html', data)
+def novaTransacao(request):
+
+        form = TransacaoForm()
+        # Verificando se já veio com o dados (Preenchida) pelo POST
+        form = TransacaoForm(request.POST or None)
+
+        if form.is_valid():
+            form.save()
+
+        #instanciamos do "from .foms import TransacaoForm"
+        #sempre que chamar o model do form tem que colocar () 
+        # passa o form para a view chamaada form.html pelo data
+        return render(request, 'contas/form.html', {'form': form})
