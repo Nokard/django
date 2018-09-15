@@ -11,3 +11,7 @@ def home(request):
     data['now'] = datetime.datetime.now()
 
     return render(request, 'contas/home.html', data)
+
+def login(request):
+
+    return render(request, 'contas/login.html')
