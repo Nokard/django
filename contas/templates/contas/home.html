@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="widtd=device-widtd, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    .containner {
+        margin: 0 auto;
+        width: 70%;
+        border: 1px solid blue;
+    }
+</style>
 <body>
 
-    <div>
+    <div class="container">
         <h1>Primeiro template</h1>
         <p> Hoje é {{ now }}</p>
 
@@ -43,8 +53,10 @@
             </tr>
         </table>
         <br>
-        <a href="login/">Clique para login</a><br>
-        <a href="form/">Clique para forms</a>
+
+        <a href="login/"><button type="button" class="btn btn-success">Login</button></a>
+        <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
+        <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>
          
 
     </div>
