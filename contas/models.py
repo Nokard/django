@@ -1,9 +1,9 @@
 from django.db import models
 
-
 # Create your models here.
 
-#Depois que criar os models do banco de dados sempre usar o "python manage.py migrate"
+#Depois que criar os models do banco de dados sempre usar o "python manage.py makemigrations"
+# e depois "python manage.py migrate"
 #Para concluir no banco 
 
 class Categoria(models.Model):
@@ -23,3 +23,8 @@ class Transacao(models.Model):
     def __str__(self):
         return self.descricao
 
+class Clientes(models.Model):
+    nome = models.CharField("Digite seu nome",max_length=85)
+    email = models.EmailField("Digite seu email",max_length=85)
+    senha = models.CharField("Digite sua senha",max_length=30)
+   

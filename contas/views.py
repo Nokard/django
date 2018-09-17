@@ -1,7 +1,7 @@
 from django.shortcuts import render 
 from django.http import HttpResponse
 import datetime
-from .forms import TransacaoForm, CategoriaForm
+from .forms import TransacaoForm, CategoriaForm, ClientesForm
 
 def home(request):
     data = {}
@@ -41,3 +41,13 @@ def novaCategoria(request):
         catForm.save()
 
     return render(request, 'contas/formCat.html', {'catForm': catForm})
+
+def cadastroCli(request):
+
+    cadastroForm = ClientesForm()
+    cadastroForm = ClientesForm(request.POST or None)
+
+    if cadastroForm.is_valid():
+        cadastroForm.save()
+
+    return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
