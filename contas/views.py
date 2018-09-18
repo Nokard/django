@@ -19,7 +19,6 @@ def home(request):
     return render(request, 'contas/home.html', data)
 
 def login(request):
-
     return render(request, 'contas/login.html')
 
 #Serve para verificar se existe um usuario logado na página
