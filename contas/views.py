@@ -1,5 +1,6 @@
 from django.shortcuts import render 
 from django.http import HttpResponse
+from .models import Clientes
 
 # login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 from django.contrib.auth.decorators import login_required
@@ -60,4 +61,5 @@ def cadastroCli(request):
 
 
 def index(request):
-    return render(request, 'contas/index.html')
+    clientes = Clientes.objects.all()
+    return render(request, 'contas/index.html', {'clientes': clientes})

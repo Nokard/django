@@ -9,6 +9,20 @@
 <body>
     <h3>Bem vindo ao Index</h3>
 <br>
+    <table border="1px">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>     
+        {% for cli in clientes %}
+            <tr>
+                <td>{{ cli.nome }}</td>
+                <td>{{ cli.email }}</td>
+            </tr> 
+                  
+        {% endfor %}
+    </ul>
+    </table>
 
     <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
     <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import CharField, Form, PasswordInput
 
 # Create your models here.
 
