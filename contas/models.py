@@ -21,10 +21,27 @@ class Transacao(models.Model):
     observacoes = models.TextField(null=True)
 
     def __str__(self):
-        return self.descricao
+        return self.descricao  
 
 class Clientes(models.Model):
     nome = models.CharField("Digite seu nome",max_length=85)
     email = models.EmailField("Digite seu email",max_length=85)
-    senha = models.("Digite sua senha",max_length=30)
+    senha = models.CharField("Digite sua senha",max_length=30)
    
+
+#Classe Documento tem relacionamento com a Person ONE TO ONE 
+class Documento(models.Model):
+    num_doc = models.CharField(max_length=50)
+
+    #função usada para retornar a numero em forma de text
+    def __str__(self):
+            return self.num_doc
+        
+
+#Classe pessoa que tem relacao com a classe Documento One to One
+class Person(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=30)
+    age = models.IntegerField()
+    salary = models.DecimalField(max_digits=5, decimal_places=2)
+    desc = models.TextField()

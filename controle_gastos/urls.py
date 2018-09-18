@@ -19,14 +19,15 @@ from contas.views import home, login, novaTransacao, novaCategoria, cadastroCli,
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('login/', auth_views.login, name='login'),
-    path('logout/', auth_views.logout, name='logout'),
     path('admin/', admin.site.urls),
     path('', home),
-    path('form/', novaTransacao),
-    path('login/', login),
-    path('catform/', novaCategoria),
+    path('index/form/', novaTransacao),
+    path('login/', auth_views.auth_login, name='login'),
+    path('index/catform/', novaCategoria),
     path('cadastro/', cadastroCli),
-    path('index/', index)
+    path('index/', index),
+    #path('login/', auth_views.login, name='login'),
+    
+
     
 ]
