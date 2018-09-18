@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'controle_gastos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_django',
-        'USER' : 'AWSdatabase',
-        'PASSWORD': 'asdqwe123',
-        'HOST': 'mysql.chzdhxjmmnnv.sa-east-1.rds.amazonaws.com',
+        'NAME': 'projeto_django',
+        'USER' : 'root',
+        'PASSWORD': 'qwaszx12',
+        'HOST': '35.199.69.222',
         'PORT': '3306'
     }
 }

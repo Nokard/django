@@ -15,14 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from contas.views import home, login, novaTransacao, novaCategoria, cadastroCli
+from contas.views import home, login, novaTransacao, novaCategoria, cadastroCli, index
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('login/', auth_views.login, name='login'),
+    path('logout/', auth_views.logout, name='logout'),
     path('admin/', admin.site.urls),
     path('', home),
     path('form/', novaTransacao),
     path('login/', login),
     path('catform/', novaCategoria),
-    path('cadastro/', cadastroCli)
+    path('cadastro/', cadastroCli),
+    path('index/', index)
     
 ]

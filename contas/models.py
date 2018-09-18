@@ -26,5 +26,5 @@ class Transacao(models.Model):
 class Clientes(models.Model):
     nome = models.CharField("Digite seu nome",max_length=85)
     email = models.EmailField("Digite seu email",max_length=85)
-    senha = models.CharField("Digite sua senha",max_length=30)
+    senha = models.("Digite sua senha",max_length=30)
    

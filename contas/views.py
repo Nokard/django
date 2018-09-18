@@ -51,3 +51,7 @@ def cadastroCli(request):
         cadastroForm.save()
 
     return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
+
+def index(request):
+
+    return render(request, 'contas/index.html')
