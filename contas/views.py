@@ -18,6 +18,7 @@ def home(request):
     return render(request, 'contas/home.html', data, {'form': form })
 
 
+
 #Serve para verificar se existe um usuario logado na página
 @login_required
 def novaTransacao(request):
