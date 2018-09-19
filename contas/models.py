@@ -25,10 +25,10 @@ class Transacao(models.Model):
         return self.descricao  
 
 class Clientes(models.Model):
-    nome = models.CharField("Digite seu nome",max_length=85)
-    email = models.EmailField("Digite seu email",max_length=85)
-    senha = models.CharField("Digite sua senha",max_length=30)
-   
+    nome = models.CharField(max_length=85)
+    email = models.EmailField(max_length=85)
+    senha = models.CharField(max_length=30)
+    teste = models.CharField(max_length=85, null=True)
 
 #Classe Documento tem relacionamento com a Person ONE TO ONE 
 class Documento(models.Model):
@@ -37,7 +37,6 @@ class Documento(models.Model):
     #função usada para retornar a numero em forma de text
     def __str__(self):
             return self.num_doc
-        
 
 #Classe pessoa que tem relacao com a classe Documento One to One
 class Person(models.Model):

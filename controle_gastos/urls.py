@@ -20,10 +20,10 @@ from contas.views import home, novaTransacao, novaCategoria, cadastroCli, index
 
 
 urlpatterns = [
-    path('login/', LoginView.as_view(), name='login'),
-    path('/home', LogoutView.as_view(), name='logout'),
-    path('admin/', admin.site.urls),
     path('', home),
+    path('login/', LoginView.as_view(), name='login'),
+    path('', LogoutView.as_view(), name='logout'),
+    path('admin/', admin.site.urls),
     path('index/form/', novaTransacao),
     path('index/catform/', novaCategoria),
     path('cadastro/', cadastroCli),

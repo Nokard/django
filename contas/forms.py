@@ -4,7 +4,6 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 
 
-
 class TransacaoForm(ModelForm):
     class Meta:
         model = Transacao
@@ -20,7 +19,7 @@ class CategoriaForm(ModelForm):
 class ClientesForm(ModelForm):  
     class Meta:
         model = Clientes
-        fields = ['nome','email','senha']
+        fields = ['nome','email','senha','teste']
         
         widgets = {
             'senha':forms.PasswordInput()

@@ -9,15 +9,22 @@
 <body>
     <h3>Bem vindo ao Index</h3>
 <br>
+    <h2>Olá {{ user.username }}, seu ultimo login foi {{ user.last_login}} </h2>
+    <h2>Email: {{ user.email }} </h2>
+
+<br>
+<br>
     <table border="1px">
         <tr>
             <th>Nome</th>
             <th>Email</th>
+            <th>Teste</th>
         </tr>     
         {% for cli in clientes %}
             <tr>
                 <td>{{ cli.nome }}</td>
                 <td>{{ cli.email }}</td>
+                <td>{{ cli.teste}}</td>
             </tr> 
                   
         {% endfor %}
@@ -26,5 +33,8 @@
 
     <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
     <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>
+
+    <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a>
+    
 </body>
 </html>

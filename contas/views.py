@@ -4,7 +4,6 @@ from .models import Clientes
 
 # login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 from django.contrib.auth.decorators import login_required
-
 import datetime
 from .forms import TransacaoForm, CategoriaForm, ClientesForm
 
