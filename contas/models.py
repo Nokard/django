@@ -33,7 +33,7 @@ class Clientes(models.Model):
 #Classe Documento tem relacionamento com a Person ONE TO ONE 
 class Documento(models.Model):
     num_doc = models.CharField(max_length=50)
-
+    
     #função usada para retornar a numero em forma de text
     def __str__(self):
             return self.num_doc

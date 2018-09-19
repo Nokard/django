@@ -1,11 +1,11 @@
 from django.shortcuts import render 
 from django.http import HttpResponse
 from .models import Clientes
-
-# login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 from django.contrib.auth.decorators import login_required
 import datetime
-from .forms import TransacaoForm, CategoriaForm, ClientesForm
+from .forms import TransacaoForm, CategoriaForm, ClientesForm, HomeForm
+
+# login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 
 def home(request):
     data = {}
@@ -15,7 +15,7 @@ def home(request):
 
     data['now'] = datetime.datetime.now()
 
-    return render(request, 'contas/home.html', data)
+    return render(request, 'contas/home.html', data, {'form': form })
 
 
 #Serve para verificar se existe um usuario logado na página

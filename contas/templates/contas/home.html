@@ -22,37 +22,10 @@
     <div class="container">
         <h1>Primeiro template</h1>
         <p> Hoje é {{ now }}</p>
+        
+        <br>
+       
 
-        {% for transacao in transacoes%}
-            <li>{{ transacao }}</li>
-        {% endfor%}
-        <br>
-        <table style="border:1px; border-collapse:collapse;">
-            <tr>
-                <td>dinheiro1</td>
-                <td>dinheiro2</td>
-                <td>dinheiro3</td>
-            </tr>
-            <tr>
-                {% for din in dinheiro %}
-                <td>{{ din }}</td>
-                {% endfor %}
-            </tr>
-            <br>
-        </table>
-        <table style="border:1px; border-collapse:collapse;">
-            <tr>
-                <td>Nome</td>
-                <td>Nome</td>
-                <td>Nome</td>
-            </tr>
-            <tr>
-                {% for nm in nomes %}
-                <td>{{ nm }}</td>
-                {% endfor %}
-            </tr>
-        </table>
-        <br>
 
         <a href="login/"><button type="button" class="btn btn-success">Login</button></a>
         <a href="cadastro/"><button type="button" class="btn btn-success">Cadastre-se</button></a>

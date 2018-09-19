@@ -1,0 +1,12 @@
+
+
+Dicas sobre o django
+
+python -m venv 'nome da pasta' -> Comando para criar o ambiente do virtual env
+
+Procurar pelo arquivo ACTIVATE para ativat o ambiente, quando estiver ativado (windows -> /Scripts/activate || linux /bin/ source activate)
+
+Quando estiver com o virtualenv ativado instalar o django com o comando 'pip install django==2.1' 
+
+--------------------------------
+Criando o primeiro projeto em Django
