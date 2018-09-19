@@ -18,8 +18,6 @@ def home(request):
 
     return render(request, 'contas/home.html', data)
 
-def login(request):
-    return render(request, 'contas/login.html')
 
 #Serve para verificar se existe um usuario logado na página
 @login_required
@@ -58,7 +56,7 @@ def cadastroCli(request):
 
     return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
 
-
+@login_required
 def index(request):
     clientes = Clientes.objects.all()
     return render(request, 'contas/index.html', {'clientes': clientes})
