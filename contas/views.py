@@ -3,20 +3,13 @@ from django.http import HttpResponse
 from .models import Clientes
 from django.contrib.auth.decorators import login_required
 import datetime
-from .forms import TransacaoForm, CategoriaForm, ClientesForm, HomeForm
+from .forms import TransacaoForm, CategoriaForm, ClientesForm
 
 # login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 
 def home(request):
-    data = {}
-    data['transacoes'] = ['t1','t2','t2']
-    data['dinheiro'] = ['a1','a2','a3']
-    data['nomes']=['Hugo','Monielle','Pedro']
-
-    data['now'] = datetime.datetime.now()
-
-    return render(request, 'contas/home.html', data, {'form': form })
-
+    
+    return render(request, 'contas/home.html')
 
 
 #Serve para verificar se existe um usuario logado na página
@@ -60,3 +53,7 @@ def cadastroCli(request):
 def index(request):
     clientes = Clientes.objects.all()
     return render(request, 'contas/index.html', {'clientes': clientes})
+
+def sair(request):
+
+    return render(request, 'contas/home.html')
