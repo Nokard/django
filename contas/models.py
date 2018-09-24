@@ -27,8 +27,10 @@ class Transacao(models.Model):
 class Clientes(models.Model):
     nome = models.CharField(max_length=85)
     email = models.EmailField(max_length=85)
-    senha = models.CharField(max_length=30)
-    teste = models.CharField(max_length=85, null=True)
+    senha = models.CharField(max_length=85)
+    senha2 = models.CharField(max_length=85, null=True)
+    descricao = models.CharField(max_length=85, null=True)
+
 
 #Classe Documento tem relacionamento com a Person ONE TO ONE 
 class Documento(models.Model):

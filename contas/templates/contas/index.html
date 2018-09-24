@@ -17,13 +17,13 @@
         <tr>
             <th>Nome</th>
             <th>Email</th>
-            <th>Teste</th>
+            <th>Descrição</th>
         </tr>     
         {% for cli in clientes %}
             <tr>
                 <td>{{ cli.nome }}</td>
                 <td>{{ cli.email }}</td>
-                <td>{{ cli.teste}}</td>
+                <td>{{ cli.descricao}}</td>
             </tr> 
                   
         {% endfor %}

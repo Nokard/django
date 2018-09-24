@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Clientes
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 import datetime
 from .forms import TransacaoForm, CategoriaForm, ClientesForm
 
@@ -10,7 +11,6 @@ from .forms import TransacaoForm, CategoriaForm, ClientesForm
 def home(request):
     
     return render(request, 'contas/home.html')
-
 
 #Serve para verificar se existe um usuario logado na página
 @login_required
@@ -54,6 +54,20 @@ def index(request):
     clientes = Clientes.objects.all()
     return render(request, 'contas/index.html', {'clientes': clientes})
 
-def sair(request):
+def loginCliente(request):
 
-    return render(request, 'contas/home.html')
+    if request.method == 'POST':
+
+        email = request.POST['email']
+        senha = request.POST['senha']
+
+        clientes = authenticate(request, email=email, password=senha)
+        if clientes is not None:
+            login(request, usuario)
+            return render (request, 'contas/index.html')
+
+        else:
+            return render (request, 'contas/index.html')
+    else:
+        return render (request, 'contas/login.html')
+
