@@ -28,7 +28,6 @@ class Clientes(models.Model):
     nome = models.CharField(max_length=85)
     email = models.EmailField(max_length=85)
     senha = models.CharField(max_length=85)
-    senha2 = models.CharField(max_length=85, null=True)
     descricao = models.CharField(max_length=85, null=True)
 
 

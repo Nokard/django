@@ -26,16 +26,7 @@ class CategoriaForm(ModelForm):
 class ClientesForm(ModelForm):  
     class Meta:
         model = Clientes
-        fields = ['nome','email','senha','senha2','descricao']
-        
-        widgets = {
-            'senha':forms.PasswordInput()
-        }
-
-class loginClient(ModelForm):
-    class Meta:
-        model = Clientes
-        fields = ['email','senha']
+        fields = ['nome','email','senha','descricao']
         
         widgets = {
             'senha':forms.PasswordInput()

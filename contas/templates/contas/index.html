@@ -8,6 +8,7 @@
 </head>
 <body>
 <br>
+    {% if user.is_authenticated %}
     <h2>Olá {{ user.username }} </h2>
     <h2>Email: {{ user.email }} </h2>
 
@@ -36,5 +37,10 @@
 
     <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a>
     
+    {% else %}
+    <h3>Você não está logado</h3>
+    <a href="{% url 'login' %}"><button type="button" class="btn btn-success">Fazer o login</button></a>
+    {% endif %}
+
 </body>
 </html>

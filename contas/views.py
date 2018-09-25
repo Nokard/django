@@ -1,11 +1,11 @@
-from django.shortcuts import render 
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django import forms 
 from .models import Clientes
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 import datetime
 from .forms import TransacaoForm, CategoriaForm, ClientesForm
-
 # login_required é usado para fazer verificar a validacao do login nas paginas @login_required
 
 def home(request):
@@ -49,25 +49,8 @@ def cadastroCli(request):
 
     return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
 
-@login_required
+#@login_required
 def index(request):
     clientes = Clientes.objects.all()
     return render(request, 'contas/index.html', {'clientes': clientes})
-
-def loginCliente(request):
-
-    if request.method == 'POST':
-
-        email = request.POST['email']
-        senha = request.POST['senha']
-
-        clientes = authenticate(request, email=email, password=senha)
-        if clientes is not None:
-            login(request, usuario)
-            return render (request, 'contas/index.html')
-
-        else:
-            return render (request, 'contas/index.html')
-    else:
-        return render (request, 'contas/login.html')
 
