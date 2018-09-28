@@ -46,3 +46,11 @@ class Person(models.Model):
     age = models.IntegerField()
     salary = models.DecimalField(max_digits=5, decimal_places=2)
     desc = models.TextField()
+
+class Article(models.Model):
+    title = models.CharField(max_length=120)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
+    

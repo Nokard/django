@@ -8,6 +8,7 @@
 </head>
 <body>
 <br>
+    <!--Verificando se o usuario está logado -->
     {% if user.is_authenticated %}
     <h2>Olá {{ user.username }} </h2>
     <h2>Email: {{ user.email }} </h2>
