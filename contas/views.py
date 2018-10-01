@@ -31,6 +31,7 @@ def novaTransacao(request):
 @login_required
 def novaCategoria(request):
 
+
     catForm = CategoriaForm()
     catForm = CategoriaForm(request.POST or None)
 

@@ -4,39 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Index</title>
 </head>
 <body>
 <br>
     <!--Verificando se o usuario está logado -->
     {% if user.is_authenticated %}
-    <h2>Olá {{ user.username }} </h2>
-    <h2>Email: {{ user.email }} </h2>
+    <h4>Bem-Vindo {{ user.username }} </h4>
 
 <br>
-<br>
-    <table border="1px">
-        <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Descrição</th>
-        </tr>     
-        {% for cli in clientes %}
-            <tr>
-                <td>{{ cli.nome }}</td>
-                <td>{{ cli.email }}</td>
-                <td>{{ cli.descricao}}</td>
-            </tr> 
-                  
-        {% endfor %}
-    </ul>
-    </table>
-    <br>
 
-    <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
-    <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>
+    <form method="POST" action="pesquisa">
+        {% csrf_token %}
+        Digite o cnpj <input type="number"/>
+        <button type="text" class="btn btn-default">Fazer uma consulta</button>
+    </form>
 
-    <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a>
+    <table class="table">
+            <thead>
+              <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Cnpj</th>
+                    <th scope="col">Nome da Empresa</th>
+              </tr>
+            </thead>
+            <tbody>
+                    {% for cli in clientes %}
+                    <tr>
+                        <td>{{ cli.nome }}</td>
+                        <td>{{ cli.email }}</td>
+                        <td>{{ cli.descricao}}</td>
+                        <td>{{ cli.cnpj }}</td>
+                        <td>{{ cli.nomeEmpresa}} </td>
+                    </tr> 
+                          
+                {% endfor %}
+              
+            </tbody>
+          </table>
+        <br>
+    
+        <div style="margin:0 auto;">
+            <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
+            <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>
+        
+            <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a> 
+        </div>
+    
     
     {% else %}
     <h3>Você não está logado</h3>

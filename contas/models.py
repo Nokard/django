@@ -29,7 +29,8 @@ class Clientes(models.Model):
     email = models.EmailField(max_length=85)
     senha = models.CharField(max_length=85)
     descricao = models.CharField(max_length=85, null=True)
-
+    nomeEmpresa = models.CharField(max_length=85, null=True)
+    cnpj = models.BigIntegerField(max_length=25, null=True)
 
 #Classe Documento tem relacionamento com a Person ONE TO ONE 
 class Documento(models.Model):

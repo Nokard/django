@@ -26,7 +26,7 @@ class CategoriaForm(ModelForm):
 class ClientesForm(ModelForm):  
     class Meta:
         model = Clientes
-        fields = ['nome','email','senha','descricao']
+        fields = ['nome','email','senha','descricao', 'nomeEmpresa', 'cnpj']
         
         widgets = {
             'senha':forms.PasswordInput()

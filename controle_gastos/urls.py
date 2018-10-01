@@ -4,7 +4,6 @@ from django.urls import path,include
 from contas.views import home, novaTransacao, novaCategoria, cadastroCli, index
 
 urlpatterns = [
-    path('api-auth/', include('rest_framework.urls')),
     path('', home),
     path('login/', LoginView.as_view(), name='login'),
     path('sair/', LogoutView.as_view(), name='logout'),
@@ -14,7 +13,5 @@ urlpatterns = [
     path('cadastro/', cadastroCli),
     path('index/', index),
     #path('login/', auth_views.login, name='login'),
-    
-
-    
+        
 ]
