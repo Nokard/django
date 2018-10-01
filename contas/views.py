@@ -50,8 +50,8 @@ def cadastroCli(request):
 
     return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
 
-#@login_required
+@login_required
 def index(request):
-    clientes = Clientes.objects.all()
+    clientes = Clientes.objects.all()[:2] 
     return render(request, 'contas/index.html', {'clientes': clientes})
 
