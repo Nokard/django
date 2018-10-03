@@ -12,12 +12,17 @@
 <br>
     <!--Verificando se o usuario está logado -->
     {% if user.is_authenticated %}
+        {% if user.is_staff == 0 %}
+            <p> Você não é super </p>
+        {% else %}
+            <p>Você é superuser</p>
+        {% endif %}
     <h4>Bem-Vindo {{ user.username }} </h4>
 
 <br>
 
-    <form method="GET" action="pesquisa">
-        Digite o cnpj <input type="number"/>
+    <form >
+        Digite o cnpj <input type="number" name="pesquisa"/>
         <button type="text" class="btn btn-default">Fazer uma consulta</button>
     </form>
 

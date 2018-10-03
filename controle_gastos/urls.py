@@ -11,7 +11,7 @@ urlpatterns = [
     path('index/form/', novaTransacao),
     path('index/catform/', novaCategoria),
     path('cadastro/', cadastroCli),
-    path('index/<int:cnpj>/', index, name='index'),
+    path('index/', index, name='index'),
     #path('login/', auth_views.login, name='login'),
         
 ]

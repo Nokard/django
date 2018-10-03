@@ -52,6 +52,12 @@ def cadastroCli(request):
 
 @login_required
 def index(request):
-    clientes = Clientes.objects.all()[:2] 
+    pesquisa = request.GET.get('pesquisa', None)
+
+    if pesquisa:
+        clientes = Clientes.objects.filter(cnpj=pesquisa)
+    else:
+        clientes = Clientes.objects.all()
+    
     return render(request, 'contas/index.html', {'clientes': clientes})
 
