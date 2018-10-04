@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django import forms 
-from .models import Clientes
+from .models import ContasClientes
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import datetime
 from .forms import TransacaoForm, CategoriaForm, ClientesForm
 # login_required é usado para fazer verificar a validacao do login nas paginas @login_required
@@ -12,10 +12,9 @@ def home(request):
     
     return render(request, 'contas/home.html')
 
-#Serve para verificar se existe um usuario logado na página
+
 @login_required
 def novaTransacao(request):
-
         form = TransacaoForm()
         # Verificando se já veio com o dados (Preenchida) pelo POST
         form = TransacaoForm(request.POST or None)
@@ -31,7 +30,6 @@ def novaTransacao(request):
 @login_required
 def novaCategoria(request):
 
-
     catForm = CategoriaForm()
     catForm = CategoriaForm(request.POST or None)
 
@@ -39,6 +37,7 @@ def novaCategoria(request):
         catForm.save()
 
     return render(request, 'contas/formCat.html', {'catForm': catForm})
+
 
 def cadastroCli(request):
 
@@ -50,14 +49,19 @@ def cadastroCli(request):
 
     return render(request, 'contas/cadastoClie.html', {'cadClie': cadastroForm})
 
+
 @login_required
 def index(request):
     pesquisa = request.GET.get('pesquisa', None)
 
     if pesquisa:
-        clientes = Clientes.objects.filter(cnpj=pesquisa)
+        clientes = ContasClientes.objects.filter(cnpj=pesquisa)
     else:
-        clientes = Clientes.objects.all()
+        clientes = ContasClientes.objects.all()
     
     return render(request, 'contas/index.html', {'clientes': clientes})
+
+def do_logout(request):
+    logout(request)
+    return redirect('home')
 

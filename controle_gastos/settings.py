@@ -85,6 +85,13 @@ DATABASES = {
     }
 }
 
+PASSWORD_HASHERS = [
+    'myproject.hashers.MyPBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -127,4 +134,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/index/'
+
+LOGOUT_REDIRECT_URL = 'contas/home/'
 

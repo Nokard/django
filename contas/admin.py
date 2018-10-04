@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Categoria, Transacao, Clientes, Article
+#from .models import ContasCategoria, ContasTransacao, ContasClientes, ContasArticle
 
 # Register your models here.
-admin.site.register(Categoria)
-admin.site.register(Transacao)
-admin.site.register(Clientes)
-admin.site.register(Article)
+#admin.site.register(ContasCategoria)
+#admin.site.register(ContasTransacao)
+#admin.site.register(ContasClientes)
+#admin.site.register(ContasArticle)

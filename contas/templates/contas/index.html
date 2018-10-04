@@ -9,6 +9,28 @@
     <title>Index</title>
 </head>
 <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  <a class="navbar-brand" href="#">Bem vindo {{ user.email}} </a>
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="form/">Transacoes <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="catform/">Categoria</a>
+                    </li>
+                    <li class="nav-item active">
+                      
+                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" name="pesquisa" placeholder="Digite o CNPJ" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquise</button>
+                    </form>
+                  </div>
+              </nav>
 <br>
     <!--Verificando se o usuario está logado -->
     {% if user.is_authenticated %}
@@ -17,17 +39,12 @@
         {% else %}
             <p>Você é superuser</p>
         {% endif %}
-    <h4>Bem-Vindo {{ user.username }} </h4>
+   
 
 <br>
-
-    <form >
-        Digite o cnpj <input type="number" name="pesquisa"/>
-        <button type="text" class="btn btn-default">Fazer uma consulta</button>
-    </form>
-
-    <table class="table">
-            <thead>
+    
+    <table class="table" style="width:80%; margin: 0 auto;">
+            <thead class="thead-dark">
               <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
@@ -52,14 +69,7 @@
           </table>
         <br>
     
-        <div style="margin:0 auto;">
-            <a href="form/"><button type="button" class="btn btn-success">Transacoes</button></a>
-            <a href="catform/"><button type="button" class="btn btn-success">Categoria</button></a>
-        
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a> 
-        </div>
-    
-    
+          
     {% else %}
     <h3>Você não está logado</h3>
     <a href="{% url 'login' %}"><button type="button" class="btn btn-success">Fazer o login</button></a>

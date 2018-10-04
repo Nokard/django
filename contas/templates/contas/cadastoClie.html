@@ -10,14 +10,16 @@
     <h2>Cadastro de Clientes</h2>
     <form method="POST">
         {% csrf_token %}
-
-        Nome <input type="text" name="nome" required /> </br><br>
-        Email <input type="text" name="email" required /> </br><br>
-        Senha <input type="password" name="senha" required /> 
-        Descricao <input type="text" name="descricao" required />
-        Empresa <input type="text" name="nomeEmpresa" required />
-        cnpj <input type="number" name="cnpj" required />
-
+        
+        <!--
+        Usuario <input type="text" name="username" required /> </br><br>
+        Nome <input type="text" name="first_name" required /> </br><br>
+        Ultimo Nome <input type="password" name="last_name" required /> 
+        Email <input type="text" name="email" required />
+        Senha <input type="password" name="senha" required />
+        -->
+        {{ cadClie }}
+        <br><br>
         <button type="submit">Cadastrar</button>
         <a href="{% url 'index' %}"><button type="button" class="btn btn-success">Index</button></a>
         
