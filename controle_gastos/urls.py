@@ -6,7 +6,6 @@ from contas.views import home, novaTransacao, novaCategoria, cadastroCli, index,
 urlpatterns = [
     path('', home, name="home"),
     path('login/', LoginView.as_view(), name='login'),
-    #path('index/sair/', LogoutView.as_view(), {'next_page': 'contas/home.html/'}, name = 'logout'),
     path('logout/', do_logout, name='logout'),
     path('admin/', admin.site.urls),
     path('index/form/', novaTransacao),

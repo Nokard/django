@@ -12,7 +12,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                  <a class="navbar-brand" href="#">Bem vindo {{ user.email}} </a>
+                  <a class="navbar-brand" href="#">Bem vindo {{ user.first_name}} </a>
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                       <a class="nav-link" href="form/">Transacoes <span class="sr-only">(current)</span></a>
@@ -42,32 +42,33 @@
    
 
 <br>
-    
-    <table class="table" style="width:80%; margin: 0 auto;">
-            <thead class="thead-dark">
-              <tr>
+<div class="col-lg-12 pb-5">
+   
+    <div class="table-responsive">
+        <table id="datatable-1" class="table table-datatable table-striped table-hover">
+            <thead>
+                <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Cnpj</th>
                     <th scope="col">Nome da Empresa</th>
-              </tr>
+                </tr>
             </thead>
             <tbody>
-                    {% for cli in clientes %}
-                    <tr>
-                        <td>{{ cli.nome }}</td>
-                        <td>{{ cli.email }}</td>
-                        <td>{{ cli.descricao}}</td>
-                        <td>{{ cli.cnpj }}</td>
-                        <td>{{ cli.nomeEmpresa}} </td>
-                    </tr> 
-                          
+                {% for cli in clientes %}
+                <tr>
+                    <td>{{ cli.nome }}</td>
+                    <td>{{ cli.email }}</td>
+                    <td>{{ cli.descricao}}</td>
+                    <td>{{ cli.cnpj }}</td>
+                    <td>{{ cli.nomeempresa}} </td>
+                </tr> 
+                      
                 {% endfor %}
-              
-            </tbody>
-          </table>
-        <br>
+            </tbody>    
+        </table>
+    </div>    
     
           
     {% else %}
